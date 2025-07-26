@@ -1,61 +1,95 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema de Gestión de Leads
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Francisco Guadarrama Coronado**  
+ingfranciscoguadarrama@gmail.com  
++52 229 243 6936  
+26 de julio de 2025
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Prueba técnica para Templet.io
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Descripción general
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Este proyecto consiste en un sistema básico de gestión de leads desarrollado con Laravel. La aplicación permite realizar operaciones CRUD: registrar nuevos leads mediante un formulario, visualizarlos en una tabla, editarlos y eliminarlos. También se incluye un endpoint API que permite consultar los leads en formato JSON.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Tecnologías utilizadas
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Laravel 12
+- PHP 8.4
+- MySQL
+- Tailwind CSS para estilos
+- Blade, Eloquent y otras herramientas estándar del ecosistema Laravel
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## Instalación
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Requisitos
 
-### Premium Partners
+Para ejecutar el proyecto, se debe contar con lo siguiente instalado:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- PHP 8.4 o superior
+- Composer
+- MySQL
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Pasos para poner en marcha el proyecto
 
-## Code of Conduct
+1. Clonar el repositorio:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+    git clone https://github.com/FcoGuadarrama/templet-test.git
+    cd templet-test
+    composer install
+```
 
-## Security Vulnerabilities
+2. Copiar el archivo `.env`
+```bash
+  cp .env.example .env
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. Configurar las variables de entorno en el archivo `.env`, especialmente las relacionadas con la base de datos.
 
-## License
+4. Correr migraciones y seeder para llenar la base de datos con un factory de 20 leads
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+    php artisan migrate --seed
+```
+5. Levantar el servidor de desarrollo
+```bash
+    php artisan serve
+```
+
+## Uso general
+
+La aplicación cuenta con una interfaz acceseible desde la ruta `/`, donde se muestra una tabla con los leads registrados. Desde esta vista, se puede acceder al formulario para crear nuevos leads, así como editar o eliminar los existentes.
+
+### Validación
+
+- El campo email tiene validaciones estándar de emails, debe de ser único.
+- El campo phone debe de ser único.
+
+## API
+
+Se proporciona un endpoint para la consulta de leads en formato JSON:
+
+```bash
+    GET /api/leads
+```
+Este endpoint permite aplicar filtros por correo electrónico y país mediante parámetros de consulta:
+- `/api/leads?email=juan@test.com`
+- `/api/leads?country=Mexico`
+- `/api/leads?email=juan&country=Mexico`
+
+
+### Tiempo invertido 
+
+El desarrollo del proyecto tomó aproximadamente dos horas. La mayor parte del tiempo fue dedicada a ajustar la presentación de la interfaz con Tailwind CSS.
+
+### Notas adicionales
+
+Se utilizaron las características integradas de Laravel en la medida de lo posible, priorizando el uso de buenas prácticas y convencionees. La estructura del proyecto está pensada para facilitar su comprensión y mantenimiento. La generación de datos mediante Faker permite hacer pruebas sin necesidad de ingresar información manualmente.

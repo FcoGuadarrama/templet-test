@@ -64,14 +64,20 @@ Para ejecutar el proyecto, se debe contar con lo siguiente instalado:
     php artisan serve
 ```
 
+---
+
 ## Uso general
 
 La aplicación cuenta con una interfaz acceseible desde la ruta `/`, donde se muestra una tabla con los leads registrados. Desde esta vista, se puede acceder al formulario para crear nuevos leads, así como editar o eliminar los existentes.
 
-### Validación
+---
+
+## Validación
 
 - El campo email tiene validaciones estándar de emails, debe de ser único.
 - El campo phone debe de ser único.
+
+---
 
 ## API
 
@@ -85,11 +91,14 @@ Este endpoint permite aplicar filtros por correo electrónico y país mediante p
 - `/api/leads?country=Mexico`
 - `/api/leads?email=juan&country=Mexico`
 
+---
 
-### Tiempo invertido 
+## Tiempo invertido 
 
 El desarrollo del proyecto tomó aproximadamente dos horas. La mayor parte del tiempo fue dedicada a ajustar la presentación de la interfaz con Tailwind CSS.
 
-### Notas adicionales
+---
+
+## Notas adicionales
 
 Se utilizaron las características integradas de Laravel en la medida de lo posible, priorizando el uso de buenas prácticas y convencionees. La estructura del proyecto está pensada para facilitar su comprensión y mantenimiento. La generación de datos mediante Faker permite hacer pruebas sin necesidad de ingresar información manualmente.
